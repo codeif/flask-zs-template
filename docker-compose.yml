@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: zsdemo
+      TZ: Asia/Chongqing
+    # ports:
+    #   - "3306:3306"
+    volumes:
+      - zsdemo-db:/var/lib/mysql
+
+  redis:
+    image: redis
+    # ports:
+    #   - "6379:6379"
+
+  web:
+    image: zsdemo
+    depends_on:
+      - db
+      - redis
+    ports:
+      - "5000:5000"
+    volumes:
+      - ".:/app"
+    command: ["pipenv", "run", "flask", "run", "-h", "0.0.0.0"]
+
+  celery:
+    image: zsdemo
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - ".:/app"
+    command: ["pipenv", "run", "celery", "-A", "zsdemo.celery_worker", "worker", "--loglevel=info"]
+
+volumes:
+  zsdemo-db:
+    driver: local
