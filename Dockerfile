@@ -1,5 +1,5 @@
-# FROM codeif/pipenv-app
-FROM zsdemo
+FROM codeif/pipenv-app
+# FROM zsdemo
 WORKDIR /app
 COPY . .
 
