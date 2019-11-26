@@ -7,6 +7,7 @@ def create_app():
     app = CustomFlask(__name__, instance_relative_config=True)
     app.config.from_object('zsdemo.default_settings')
     app.config.from_pyfile('application.cfg', silent=True)
+    app.config.from_envvar('ZSDEMO_SETTINGS', silent=True)
     db.init_app(app)
 
     register_blueprints(app, 'zsdemo.views')
