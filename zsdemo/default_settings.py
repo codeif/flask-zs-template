@@ -1,4 +1,5 @@
-DEBUG = True
+DEBUG = False
+JSON_AS_ASCII = False
 
 SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:password@db/zsdemo'
 SQLALCHEMY_ECHO = False
