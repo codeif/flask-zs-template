@@ -28,7 +28,7 @@ services:
       - "5000:5000"
     volumes:
       - ".:/app"
-    command: ["pipenv", "run", "flask", "run", "-h", "0.0.0.0"]
+    command: ["flask", "run", "-h", "0.0.0.0"]
 
   celery:
     image: zsdemo
@@ -37,7 +37,7 @@ services:
       - redis
     volumes:
       - ".:/app"
-    command: ["pipenv", "run", "celery", "-A", "zsdemo.celery_worker", "worker", "--loglevel=info"]
+    command: ["celery", "-A", "zsdemo.celery_worker", "worker", "--loglevel=info"]
 
 volumes:
   zsdemo-db:

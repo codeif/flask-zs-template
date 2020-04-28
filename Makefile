@@ -1,5 +1,21 @@
+export FLASK_APP=zhutou
+export FLASK_DEBUG=1
+export FLASK_ENV=development
+export PYTHONUNBUFFERED=1
+export PACKAGE_NAME=zsdemo
+
+run:
+	flask run
+
 build:
-	docker build -t zsdemo .
+	docker build -t ${PACKAGE_NAME} .
 
 init-db:
-	docker-compose exec web pipenv run flask init-db
+	flask init-db
+
+collect-models:
+	PYTHONPATH=. collect-models ${PACKAGE_NAME} > ${PACKAGE_NAME}/models/__init__.py
+
+requirements:
+	poetry export  --format requirements.txt --without-hashes > requirements.txt
+

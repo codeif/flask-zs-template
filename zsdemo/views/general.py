@@ -1,16 +1,15 @@
 from flask import Blueprint
-
 from ..exceptions import NoError
 
-bp = Blueprint('general', __name__)
+bp = Blueprint("general", __name__)
 
 
-@bp.route('/')
+@bp.route("/")
 def index():
-    return 'hello2'
+    return "hello"
     # raise NoError
 
 
-@bp.route('/ok')
+@bp.route("/ok")
 def no_error():
     raise NoError

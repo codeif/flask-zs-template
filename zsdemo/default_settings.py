@@ -1,9 +1,9 @@
 DEBUG = False
 JSON_AS_ASCII = False
 
-SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:password@db/zsdemo'
+SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:password@db/zsdemo"
 SQLALCHEMY_ECHO = False
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-REDIS_URL = 'redis://redis/0'
-CELERY_BROKER_URL = 'redis://redis/1'
+REDIS_URL = "redis://redis/0"
+CELERY_BROKER_URL = "redis://redis/1"
