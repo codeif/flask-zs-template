@@ -1,5 +1,6 @@
 from flask import Blueprint
 from flask_zs import BaseItemView, register_api
+
 from ..forms.user import UserForm
 from ..models.user import User
 

@@ -1,9 +1,9 @@
-from flask import current_app
 from celery import Celery
-from flask_zs import BaseModel
+from flask import current_app
 from flask_redis import FlaskRedis
-from werkzeug.local import LocalProxy
 from flask_sqlalchemy import SQLAlchemy
+from flask_zs import BaseModel
+from werkzeug.local import LocalProxy
 
 logger = LocalProxy(lambda: current_app.logger)
 db = SQLAlchemy(model_class=BaseModel)

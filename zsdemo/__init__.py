@@ -1,5 +1,6 @@
 from flask_zs import CustomFlask, register_blueprints, register_error_handlers
-from .core import db, celery, commands, redis_store
+
+from .core import celery, commands, db, redis_store
 
 
 def create_app():

@@ -1,4 +1,5 @@
 from flask import Blueprint
+
 from ..exceptions import NoError
 
 bp = Blueprint("general", __name__)

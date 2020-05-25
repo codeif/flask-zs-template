@@ -1,6 +1,7 @@
 from flask_zs.forms import BaseItemForm
 from flask_zs.forms.fields import StringField
-from flask_zs.forms.validators import PhoneNumber, DataRequired
+from flask_zs.forms.validators import DataRequired, PhoneNumber
+
 from ..core import db
 from ..models.user import User
 
