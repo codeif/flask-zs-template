@@ -1,7 +1,7 @@
 import click
 from flask.cli import with_appcontext
 
-from ..models.user import User
+from ..models import User
 from . import db
 
 

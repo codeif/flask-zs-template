@@ -3,7 +3,7 @@ from flask_zs.forms.fields import StringField
 from flask_zs.forms.validators import DataRequired, PhoneNumber
 
 from ..core import db
-from ..models.user import User
+from ..models import User
 
 
 class UserForm(BaseItemForm):
