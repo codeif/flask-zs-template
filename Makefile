@@ -1,4 +1,4 @@
-export FLASK_APP=zhutou
+export FLASK_APP=zsdemo
 export FLASK_DEBUG=1
 export FLASK_ENV=development
 export PYTHONUNBUFFERED=1
