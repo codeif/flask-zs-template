@@ -14,5 +14,6 @@ COPY poetry.lock .
 RUN poetry install --no-dev --no-interaction
 
 COPY zsdemo ./zsdemo
+ENV FLASK_APP=zsdemo
 
 CMD gunicorn -w 4 -b 0.0.0.0:80 "zsdemo:create_app()"
