@@ -1,13 +1,18 @@
-# FROM codeif/pipenv-app
-FROM python:3.7
-WORKDIR /app
-COPY . .
+FROM python:3.8-slim
 
-
+ENV PIP_DISABLE_PIP_VERSION_CHECK=on
 ENV TZ=Asia/Shanghai PYTHONUNBUFFERED=1
-ENV  FLASK_APP=zsdemo FLASK_ENV=development
 
-# ENV PIPENV_PYPI_MIRROR=https://pypi.tuna.tsinghua.edu.cn/simple
-RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-RUN pip install -U pip
-RUN pip install -r requirements.txt
+WORKDIR /app
+
+RUN pip install poetry
+RUN poetry config virtualenvs.create false
+
+COPY pyproject.toml .
+COPY poetry.lock .
+
+RUN poetry install --no-dev --no-interaction
+
+COPY zsdemo ./zsdemo
+
+CMD gunicorn -w 4 -b 0.0.0.0:80 "zsdemo:create_app()"
