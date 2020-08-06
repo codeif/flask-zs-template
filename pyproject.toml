@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "flask-zs-template"
+name = "zsdemo"
 version = "0.1.0"
 authors = ["codeif <me@codeif.com>"]
 description = "A flask-zs example"
