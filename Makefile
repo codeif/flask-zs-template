@@ -14,7 +14,7 @@ init-db:
 	flask init-db
 
 collect-models:
-	PYTHONPATH=. collect-models ${PACKAGE_NAME} > ${PACKAGE_NAME}/models/__init__.py
+	PYTHONPATH=. collect-models ${PACKAGE_NAME} > ${PACKAGE_NAME}/models/__init__.py2
 
 requirements:
 	poetry export  --format requirements.txt --without-hashes > requirements.txt
