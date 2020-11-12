@@ -5,17 +5,8 @@ from flask import Blueprint
 
 from .. import tasks
 from ..core import redis_store
-from ..exceptions import NoError
-from ..forms.test import TestForm
 
 bp = Blueprint("test", __name__, url_prefix="/test")
-
-
-@bp.route("/form", methods=["POST"])
-def form_test():
-    form = TestForm()
-    form.check()
-    raise NoError
 
 
 @bp.route("/celery")
@@ -33,3 +24,8 @@ def celery_test():
 def baidu():
     return requests.get("https://www.baidu.com")
     # return requests.get('http://httpbin.org/ip')
+
+
+@bp.route("/list")
+def list_api():
+    return ["a", "b"]
